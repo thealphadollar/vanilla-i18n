@@ -9,8 +9,8 @@
   <a href="https://github.com/thealphadollar/vanilla-i18n/blob/master/LICENSE" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
   </a>
-  <a href="https://twitter.com/thealphadollar\_" target="_blank">
-    <img alt="Twitter: thealphadollar\_" src="https://img.shields.io/twitter/follow/thealphadollar\_.svg?style=social" />
+  <a href="https://twitter.com/thealphadollar_" target="_blank">
+    <img alt="Twitter: thealphadollar_" src="https://img.shields.io/twitter/follow/thealphadollar_.svg?style=social" />
   </a>
 </p>
 
@@ -18,11 +18,41 @@
 
 ### 🏠 [Homepage](https://github.com/thealphadollar/vanilla-i18n)
 
+## Motivation
+
+This library aims to solve the problem of providing internationalization (translations) to a part or entirety of your website, to certain paragraphs, to words, or to any another granular level desired. There are five simple steps to achieving this: 
+
+1. create a CSV file of translations
+2. convert CSV to `vanilla-i18n` language JSONs
+3. import the script
+4. enclose text (to be translated) in `i18n` tags
+5. provide language selection
+
+Voila! Your visitors can now see the content you have translated without any large overhead, delay, or using sophisticated libraries on your side.
+
+> It's plain vanilla ~js~ i18n!
+
+## How To Use
+
+The script is simple to add to your website, and following are the details of each of the required steps.
+
+NOTE: The script does NOT provide translations by itself; the developer is expected to manually (or otherwise) write translations for each of the text for each desired language.
+
+### Create CSV File of Translations
+
+### Convert CSV to `vanilla-i18n` Language JSONs
+
+### Import The Script
+
+### Enclose Text In `i18n` tags
+
+### Provide Language Selection
+
 ## Author
 
-👤 **thealphadollar**
+👤 **Shivam Kumar Jha**
 
-* Website: thealphadollar.me
+* Website: [thealphadollar.me](https://thealphadollar.me)
 * Twitter: [@thealphadollar\_](https://twitter.com/thealphadollar\_)
 * Github: [@thealphadollar](https://github.com/thealphadollar)
 * LinkedIn: [@thealphadollar](https://linkedin.com/in/thealphadollar)
