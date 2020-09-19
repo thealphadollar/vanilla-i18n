@@ -12,8 +12,8 @@
   <a href="https://twitter.com/thealphadollar_" target="_blank">
     <img alt="Twitter: thealphadollar_" src="https://img.shields.io/twitter/follow/thealphadollar_.svg?style=social" />
   </a>
-  <a class="github-button" href="https://github.com/thealphadollar" data-size="large" aria-label="Follow @thealphadollar on GitHub">
-    Follow @thealphadollar
+  <a href="https://github.com/thealphadollar?tab=followers" target="_blank">
+    <img alt="Github: thealphadollar" src="https://img.shields.io/github/followers/thealphadollar.svg?style=social&label=Follow&maxAge=2592000" />
   </a>
 </p>
 
