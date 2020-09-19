@@ -1,5 +1,5 @@
-vanilla-i18n-key,English,हिन्दी,मराठी,ગુજરાતી,ಕನ್ನಡ,தமிழ்,తెలుగు,বাংলা,ਪੰਜਾਬੀ,española,français
-language,Language,भाषा,भाषा,ભાષાની,ಭಾಷಾ,மொழி,భాషా,ভাষা,ਭਾਸ਼ਾ,idioma,Langue
-form.name,Name,नाम,नाव,નામ,ಹೆಸರು,பெயர்,పేరు,নাম,ਨਾਮ,nombre,Nom
-form.age,Age,उम्र,वय,ઉંમર,ವಯಸ್ಸು,வயது,వయస్సు,বয়স,ਉੁਮਰ,años,âge
-form.resp.yes,Yes,हाँ,होय,હા,ಹೌದು,ஆம்,అవును,হ্যাঁ,ਜੀ,si,Oui
+vanilla-i18n-key,English,हिन्दी,española,français
+language,Language,भाषा,idioma,Langue
+form.name,Name,नाम,nombre,Nom
+form.age,Age,उम्र,años,âge
+form.resp.yes,Yes,हाँ,si,Oui
