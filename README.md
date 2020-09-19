@@ -12,6 +12,9 @@
   <a href="https://twitter.com/thealphadollar_" target="_blank">
     <img alt="Twitter: thealphadollar_" src="https://img.shields.io/twitter/follow/thealphadollar_.svg?style=social" />
   </a>
+  <a class="github-button" href="https://github.com/thealphadollar" data-size="large" aria-label="Follow @thealphadollar on GitHub">
+    Follow @thealphadollar
+  </a>
 </p>
 
 > A super lightweight JS script to provide internationalization to your website using translations from JSON files.
@@ -40,13 +43,94 @@ NOTE: The script does NOT provide translations by itself; the developer is expec
 
 ### Create CSV File of Translations
 
+`vanilla-i18n` requires you to have a key and corresponding language mappings of the key. An example CSV is below,
+
+```csv
+vanilla-i18n-key,English,हिन्दी,français
+language,Language,भाषा,भाषा,Langue
+form.name,Name,नाम,Nom
+```
+
+Salient features are:
+
+- first row must provide languages following the key entry
+- first column must be the key for replacement 
+- nested keys are supported, and nesting is depicted by "."
+- same key cannot exist in unnested form, for eg. in above CSV, a key `form` should not exist
+
+NOTE: These keys are used later to perform replacement in the HTML, and should be same as the `select` options for choosing language.
+
 ### Convert CSV to `vanilla-i18n` Language JSONs
+
+With the provided python script (more details in `csv_to_vanilla-i18n`), convert the CSV to languages JSONs. The filename is based on the first row of the CSV. For eg. for the above CSV, the generated JSON are `English.json`, `हिन्दी.json`, and `français.json`.
+
+Provide these language JSON files in your hosting server, default is inside directory `assets/vanilla-i18n` in the root folder of your website.
 
 ### Import The Script
 
+Import the JS in all the HTML pages where the translation is required by including the below snippet right after `<head>` tag.
+
+
+```javascript
+<script src="https://raw.githubusercontent.com/thealphadollar/vanilla-i18n/master/src/vanilla-i18n.min.js"></script>
+<script>
+  const languages = [
+    "English",
+    "हिन्दी",
+    "français"
+  ];
+  new vanilla_i18n (
+    languages,
+    opts = {
+      path: "assets/vanilla-i18n",
+      debug: false,
+      i18n_attr_name: "vanilla-i18n",
+      toggler_id: "vanilla-i18n-toggler",
+      default_language: languages[0],
+    }
+  ).run();
+</script>
+```
+
+The `vanilla-i18n` objects takes the following arguments:
+
+1. `languages`: List of languages same as in the first row of language CSV or the names of the language JSON files without `.json` extension. The above snipper includes list of languages as per the example CSV.
+2. `opts`: These are optional arguments:
+  1. `path`: Path to the language files relative to the root of the website folder. Default: `assets/vanilla-i18n`.
+  2. `debug`: Shows debug information in browser console. Default: `false`.
+  3. `i18n_attr_name`: Name of the data attribute storing the key to be used for translation of the enclosed text (more in next section). Default: `vanilla-i18n`.
+  4. `toggler_id`: ID of the `select` element for choosing language. Default: `vanilla-i18n-toggler`.
+  5. `default_language`: Default language from the languages specified in the `languages` list. Default: `languages[0]`
+
 ### Enclose Text In `i18n` tags
 
+Any text, word, paragraph, sentence, etc. that needs to be translated is to be enclosed as follows.
+
+```html
+<i18n vanilla-i18n="form.name">Name</i18n>
+```
+
+The attribute `vanilla-i18n` points to the key to be matched in the language JSON for replacement.
+
+NOTE: The example above encloses only a word; however, any text (sentence, paragraph, div, span, etc) can be enclosed if proper replacement is provided in each language.
+
 ### Provide Language Selection
+
+Provide users language selection via `select` input tag. An example of the same, corresponding to above CSV, is,
+
+```html
+<select id="vanilla-i18n-toggler">
+  <option>English</option>
+  <option>हिन्दी</option>
+  <option>français</option>
+</select>
+```
+
+Following key points should be checked for proper functioning of the script:
+
+- The `id` of the select should be set as `toggler_id` provided in `opts` for `vanilla_i18n` in the `Import The Script` step above.
+- if you have an existing language toggler, set it's `id` as the provided `toggler_id`.
+- The value of options should be same as the CSV language heading or the language JSON filenames without `.json` extension.
 
 ## Author
 
@@ -69,6 +153,9 @@ Give a ⭐️ if this project helped you!
 
 Copyright © 2020 [thealphadollar](https://github.com/thealphadollar).<br />
 This project is [MIT](https://github.com/thealphadollar/vanilla-i18n/blob/master/LICENSE) licensed.
+
+The script is inspired from [Building a super small and simple i18n script in JavaScript](https://codeburst.io/translating-your-website-in-pure-javascript-98b9fa4ce427) by [
+Andreas Remdt](https://github.com/andreasremdt).
 
 ***
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
