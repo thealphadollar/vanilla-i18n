@@ -41,7 +41,7 @@ The script is simple to add to your website, and following are the details of ea
 
 NOTE: The script does NOT provide translations by itself; the developer is expected to manually (or otherwise) write translations for each of the text for each desired language.
 
-### Create CSV File of Translations
+### 1. Create CSV File of Translations
 
 `vanilla-i18n` requires you to have a key and corresponding language mappings of the key. An example CSV is below,
 
@@ -60,13 +60,13 @@ Salient features are:
 
 NOTE: These keys are used later to perform replacement in the HTML, and should be same as the `select` options for choosing language.
 
-### Convert CSV to `vanilla-i18n` Language JSONs
+### 2. Convert CSV to `vanilla-i18n` Language JSONs
 
 With the provided python script (more details in `csv_to_vanilla-i18n`), convert the CSV to languages JSONs. The filename is based on the first row of the CSV. For eg. for the above CSV, the generated JSON are `English.json`, `हिन्दी.json`, and `français.json`.
 
 Provide these language JSON files in your hosting server, default is inside directory `assets/vanilla-i18n` in the root folder of your website.
 
-### Import The Script
+### 3. Import The Script
 
 Import the JS in all the HTML pages where the translation is required by including the below snippet right after `<head>` tag.
 
@@ -102,7 +102,7 @@ The `vanilla-i18n` objects takes the following arguments:
   4. `toggler_id`: ID of the `select` element for choosing language. Default: `vanilla-i18n-toggler`.
   5. `default_language`: Default language from the languages specified in the `languages` list. Default: `languages[0]`
 
-### Enclose Text In `i18n` tags
+### 4. Enclose Text In `i18n` tags
 
 Any text, word, paragraph, sentence, etc. that needs to be translated is to be enclosed as follows.
 
@@ -114,7 +114,7 @@ The attribute `vanilla-i18n` points to the key to be matched in the language JSO
 
 NOTE: The example above encloses only a word; however, any text (sentence, paragraph, div, span, etc) can be enclosed if proper replacement is provided in each language.
 
-### Provide Language Selection
+### 5. Provide Language Selection
 
 Provide users language selection via `select` input tag. An example of the same, corresponding to above CSV, is,
 
