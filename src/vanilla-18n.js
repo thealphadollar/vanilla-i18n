@@ -5,7 +5,7 @@ const DEFAULT_i18n_DATA_ATTR  = "vanilla-i18n";
 const DEFAULT_i18n_DIR = "assets/vanilla-i18n";
 const DEFAULT_LANG_TOGGLER_ID = "vanilla-i18n-toggler";
 
-class Translator {
+class vanilla_i18n {
     constructor(languages, opts) {
         this._languages = languages;
         this._path = this._sanitizePath(opts.path || DEFAULT_i18n_DIR);
@@ -13,11 +13,14 @@ class Translator {
         this._i18nDataAttr = opts.i18n_attr_name || DEFAULT_i18n_DATA_ATTR;
         this._localStorageKey = this._generateKeyFromHost();
         this._togglerID = opts.toggler_id || DEFAULT_LANG_TOGGLER_ID;
+        if (!opts.default_language) {
+            opts.default_language = this._languages[0];
+        }
         if (!this._getLanguage() && opts.default_language) {
             this._setSavedLanguage(opts.default_language);
         }
         document.addEventListener("DOMContentLoaded", () => { 
-            this._attachOnChangeToi18nToggler(opts.toggler_id || DEFAULT_LANG_TOGGLER_ID)
+            this._attachOnChangeToi18nToggler(this._togglerID)
         });
     }
 
