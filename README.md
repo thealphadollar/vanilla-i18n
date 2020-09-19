@@ -72,7 +72,7 @@ Import the JS in all the HTML pages where the translation is required by includi
 
 
 ```javascript
-<script src="https://raw.githubusercontent.com/thealphadollar/vanilla-i18n/master/src/vanilla-i18n.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/thealphadollar/vanilla-i18n/src/vanilla-i18n.min.js"></script>
 <script>
   const languages = [
     "English",
