@@ -17,6 +17,8 @@
   </a>
 </p>
 
+<img align="center" alt="vanilla-18n logo" src="assets/logo.png" />
+
 > **A super lightweight JS script to provide internationalization to your website using translations from JSON files.**
 
 ### 🏠 [Homepage](https://github.com/thealphadollar/vanilla-i18n)
