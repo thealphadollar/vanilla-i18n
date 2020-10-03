@@ -11,7 +11,6 @@ rl.question("Enter path for the csv file ",(input) => {
 })
 
 const mycsv = fs.readFileSync(path,'utf-8');
-console.log(mycsv);
 
 const myjson = csvJSON(mycsv)
 console.log(myjson);
@@ -36,8 +35,7 @@ function csvJSON(csv){
         result.push(obj);
   
     }
-    
-    //return result; //JavaScript object
-    return JSON.stringify(result); //JSON
+
+    return JSON.stringify(result); 
   }
 
