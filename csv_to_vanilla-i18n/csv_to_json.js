@@ -1,5 +1,15 @@
 const fs = require('fs');
-const path= ""  // enter your data file path here
+var path= ""  // enter your data file path here
+const readline = require("readline");
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+rl.question("Enter path for the csv file ",(input) => {
+    path=input;
+})
+
 const mycsv = fs.readFileSync(path,'utf-8');
 console.log(mycsv);
 
