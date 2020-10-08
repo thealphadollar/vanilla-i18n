@@ -1,31 +1,82 @@
 const fs = require('fs');
-const csv = require('csvtojson');
-const prompt = require('prompt-sync')();
-const csvFile = fs.readFileSync(prompt('Enter path to CSV file: '), 'utf-8');
+const path = require('path');
+const readline = require('readline');
+const r1 = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+const dirPath = path.join(__dirname, '/vanilla-18n2');
 
-let result = [];
+r1.question('Enter path to CSV file: ', (answer) => {
+  if (fs.existsSync(answer)) {
+    const csvFile = fs.readFileSync(answer, { encoding: 'utf8' });
+    const languages = csvFile
+      .split('\r\n')
+      .splice(0, 1)
+      .join('')
+      .split(',')
+      .splice(1);
+    const csvArr = csvFile.split('\r\n').splice(1);
+    let csvTemp = [];
 
-let languages = csvFile.split('\n').splice(0, 1).join('').split(',').splice(1);
-let arr = csvFile.split('\n').splice(1);
-
-for (let k = 0; k < arr.length; k++) {
-  result[k] = arr[k].split(',');
-}
-
-const transpose = result[0].map((_, colIndex) =>
-  result.map((row) => row[colIndex])
-);
-
-const csvTransposed = transpose.join('\n');
-
-csv()
-  .fromString(csvTransposed)
-  .then((jsonObj) => {
-    for (let i = 0; i < languages.length; i++) {
-      fs.writeFileSync(
-        `./${languages[i]}.json`,
-        JSON.stringify(jsonObj.splice(0, 1)).replace(/^\[|]$/g, ''),
-        'UTF-8'
-      );
+    for (let k = 0; k < csvArr.length; k++) {
+      csvTemp[k] = csvArr[k].split(',');
     }
-  });
+
+    const transpose = csvTemp[0].map((_, colIndex) =>
+      csvTemp.map((row) => row[colIndex])
+    );
+
+    const csvTransposed = transpose.join('\n').split('\n').splice(1);
+    const header = transpose.join('\n').split('\n').splice(0, 1);
+    console.log(`DEBUG: Languages found are ${JSON.stringify(languages)}`);
+
+    const constructObj = (str, parentObj, data) => {
+      if (str.split('.').length === 1) {
+        parentObj[str] = data;
+        return parentObj;
+      }
+
+      let curKey = str.split('.')[0];
+      if (!parentObj[curKey]) parentObj[curKey] = {};
+      parentObj[curKey] = constructObj(
+        str.split('.').slice(1).join('.'),
+        parentObj[curKey],
+        data
+      );
+      return parentObj;
+    };
+
+    const csvFinal = csvTransposed.map((row) => {
+      let obj = {};
+      let rowData = row.split(',');
+      header[0].split(',').forEach(function (val, idx) {
+        obj = constructObj(val, obj, rowData[idx]);
+      });
+      return obj;
+    });
+
+    const create = (csvFinal, dirPath) => {
+      if (!fs.existsSync(dirPath)) {
+        fs.mkdirSync(dirPath);
+        create(csvFinal, dirPath);
+      } else {
+        for (let i = 0; i < languages.length; i++) {
+          fs.writeFileSync(
+            `${dirPath}/${languages[i]}.json`,
+            JSON.stringify(csvFinal.splice(0, 1)).replace(/^\[|]$/g, ''),
+            'UTF-8'
+          );
+        }
+        console.log(`INFO: Language JSON have been output in ${dirPath}`);
+      }
+    };
+
+    create(csvFinal, dirPath);
+
+    r1.close();
+  } else {
+    console.log('Invalid File CSV file');
+    r1.close();
+  }
+});
