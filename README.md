@@ -1,7 +1,4 @@
 <h1 align="center">Welcome to vanilla-i18n 👋</h1>
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
 <p>
   <a href="https://www.npmjs.com/package/vanilla-i18n" target="_blank">
     <img alt="Version" src="https://img.shields.io/npm/v/vanilla-i18n.svg">
@@ -17,6 +14,9 @@
   </a>
   <a href="https://github.com/thealphadollar?tab=followers" target="_blank">
     <img alt="Github: thealphadollar" src="https://img.shields.io/github/followers/thealphadollar.svg?style=social&label=Follow&maxAge=2592000" />
+  </a>
+  <a href="#contributors-">
+    <img alt="All Contributors" src="https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square" />
   </a>
 </p>
 
