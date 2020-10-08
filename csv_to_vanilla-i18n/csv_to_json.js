@@ -5,7 +5,7 @@ const r1 = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
-const dirPath = path.join(__dirname, '/vanilla-18n');
+const dirPath = path.join(__dirname, '/vanilla-i18n');
 
 r1.question('Enter path to CSV file: ', (answer) => {
   if (fs.existsSync(answer)) {
