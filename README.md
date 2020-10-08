@@ -1,4 +1,7 @@
 <h1 align="center">Welcome to vanilla-i18n 👋</h1>
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-0-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 <p>
   <a href="https://www.npmjs.com/package/vanilla-i18n" target="_blank">
     <img alt="Version" src="https://img.shields.io/npm/v/vanilla-i18n.svg">
@@ -158,6 +161,19 @@ This project is [MIT](https://github.com/thealphadollar/vanilla-i18n/blob/master
 
 The script is inspired from [Building a super small and simple i18n script in JavaScript](https://codeburst.io/translating-your-website-in-pure-javascript-98b9fa4ce427) by [
 Andreas Remdt](https://github.com/andreasremdt).
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
 
 ***
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
