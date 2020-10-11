@@ -15,9 +15,8 @@ const mycsv = fs.readFileSync(__dirname+path,'utf-8');
 
 
 const myjson = csvJSON(mycsv)
-console.log(myjson);
 try {
-    fs.writeFileSync("./newfile.json", myjson)
+    fs.writeFileSync("./vanilla-i18n/new.json", myjson)
 } catch (err) {
     console.error(err)
 }
