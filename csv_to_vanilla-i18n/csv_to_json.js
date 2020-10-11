@@ -1,19 +1,28 @@
+const { dir } = require('console');
 const fs = require('fs');
 var path= ""  // enter your data file path here
 const readline = require("readline");
+
 const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
 });
 
+
 rl.question("Enter path for the csv file ",(input) => {
     path=input;
-})
+const mycsv = fs.readFileSync(__dirname+path,'utf-8');
 
-const mycsv = fs.readFileSync(path,'utf-8');
 
 const myjson = csvJSON(mycsv)
 console.log(myjson);
+try {
+    fs.writeFileSync("./newfile.json", myjson)
+} catch (err) {
+    console.error(err)
+}
+})
+
 
 function csvJSON(csv){
 
@@ -36,6 +45,6 @@ function csvJSON(csv){
   
     }
 
-    return JSON.stringify(result); 
+    return JSON.stringify(result[0]); 
   }
 
