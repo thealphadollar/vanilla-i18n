@@ -1,7 +1,7 @@
 # Issue must have
 
 <!--
-Customized from the [template](https://github.com/thealphadollar/vanilla-i18n/blob/master/.github/ISSUE_TEMPLATE.md)
+Customized from the [template](https://github.com/golang/go/blob/master/.github/ISSUE_TEMPLATE)
 Please answer these questions before submitting your issue. Thanks!
 -->
 
