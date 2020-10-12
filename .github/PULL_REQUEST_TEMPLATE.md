@@ -1,6 +1,5 @@
 <!--
-Customized from the template
-(https://github.com/thealphadollar/vanilla-i18n/blob/master/.github/PULL_REQUEST_TEMPLATE.md)
+Customized from the [template](https://github.com/docker/cli/blob/master/.github/PULL_REQUEST_TEMPLATE.md)
 
 Please make sure you've read and understood our contributing guidelines;
 https://github.com/thealphadollar/vanilla-i18n#-contributing
