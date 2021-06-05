@@ -172,6 +172,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="https://github.com/toyamarodrigo"><img src="https://avatars1.githubusercontent.com/u/41844101?v=4?s=100" width="100px;" alt=""/><br /><sub><b>rt</b></sub></a><br /><a href="https://github.com/thealphadollar/vanilla-i18n/commits?author=toyamarodrigo" title="Code">💻</a> <a href="https://github.com/thealphadollar/vanilla-i18n/commits?author=toyamarodrigo" title="Documentation">📖</a> <a href="#ideas-toyamarodrigo" title="Ideas, Planning, & Feedback">🤔</a> <a href="#plugin-toyamarodrigo" title="Plugin/utility libraries">🔌</a> <a href="#tool-toyamarodrigo" title="Tools">🔧</a></td>
+    <td align="center"><a href="http://denisvieira.js.org/"><img src="https://avatars.githubusercontent.com/u/8844649?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Denis Vieira</b></sub></a><br /><a href="#maintenance-denisvieira05" title="Maintenance">🚧</a></td>
   </tr>
 </table>
 
