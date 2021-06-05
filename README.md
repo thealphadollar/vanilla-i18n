@@ -112,11 +112,29 @@ Any text, word, paragraph, sentence, etc. that needs to be translated is to be e
 
 ```html
 <i18n vanilla-i18n="form.name">Name</i18n>
+<i18n vanilla-i18n="form.movies.options"><select name="moviepref">
+    <option value=1 selected="true">
+        comedy
+    </option>
+    <option value=2>
+        romance
+    </option>
+    <option value=3>
+        thriller
+    </option>
+    <option value=4>
+        horror
+    </option>
+    <option value=5>
+        biopic
+    </option>
+</select>
+</i18n>
 ```
 
 The attribute `vanilla-i18n` points to the key to be matched in the language JSON for replacement.
 
-NOTE: The example above encloses only a word; however, any text (sentence, paragraph, div, span, etc) can be enclosed if proper replacement is provided in each language.
+As seen in the above example, entire HTML elements or any section of the HTML can be replaced.
 
 ### 5. Provide Language Selection
 

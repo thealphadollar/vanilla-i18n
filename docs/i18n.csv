@@ -12,9 +12,53 @@ form.topics.web,Online resources,ऑनलाइन संसाधन,Ressource
 form.topics.phone,Phone apps,फ़ोन ऐप्स,applications téléphoniques
 form.topics.magazines,Magazines,पत्रिका,Les magazines
 form.movies.desc,What genre of movies do you like?,आप फिल्मों में से किस शैली पसंद है?,Quel genre de films aimez-vous?
-form.movies.comedy,Comedy,कॉमेडी,La comédie
-form.movies.romance,Romance,रोमांस,Romance
-form.movies.thriller,Thriller,थ्रिलर,Polar
-form.movies.horror,Horror,डरावनी,Horreur
-form.movies.biopic,Biopic,बायोपिक,biopic
+form.movies.options,"<select name=""moviepref"">
+                <option value=1 selected=""true"">
+                    <i18n vanilla-i18n=""form.movies.comedy"">comedy</i18n>
+                </option>
+                <option value=2>
+                    <i18n vanilla-i18n=""form.movies.romance"">romance</i18n>
+                </option>
+                <option value=3>
+                    <i18n vanilla-i18n=""form.movies.thriller"">thriller</i18n>
+                </option>
+                <option value=4>
+                    <i18n vanilla-i18n=""form.movies.horror"">horror</i18n>
+                </option>
+                <option value=5>
+                    <i18n vanilla-i18n=""form.movies.biopic"">biopic</i18n>
+                </option>
+            </select>","<select name=""moviepref"">
+                <option value=1 selected=""true"">
+                    <i18n vanilla-i18n=""form.movies.comedy"">कॉमेडी</i18n>
+                </option>
+                <option value=2>
+                    <i18n vanilla-i18n=""form.movies.romance"">रोमांस</i18n>
+                </option>
+                <option value=3>
+                    <i18n vanilla-i18n=""form.movies.thriller"">थ्रिलर</i18n>
+                </option>
+                <option value=4>
+                    <i18n vanilla-i18n=""form.movies.horror"">डरावनी</i18n>
+                </option>
+                <option value=5>
+                    <i18n vanilla-i18n=""form.movies.biopic"">बायोपिक</i18n>
+                </option>
+            </select>","<select name=""moviepref"">
+                <option value=1 selected=""true"">
+                    <i18n vanilla-i18n=""form.movies.comedy"">La comédie</i18n>
+                </option>
+                <option value=2>
+                    <i18n vanilla-i18n=""form.movies.romance"">Romance</i18n>
+                </option>
+                <option value=3>
+                    <i18n vanilla-i18n=""form.movies.thriller"">Polar</i18n>
+                </option>
+                <option value=4>
+                    <i18n vanilla-i18n=""form.movies.horror"">Horreur</i18n>
+                </option>
+                <option value=5>
+                    <i18n vanilla-i18n=""form.movies.biopic"">biopic</i18n>
+                </option>
+            </select>"
 form.submit,Submit,प्रस्तुत,Soumettre
