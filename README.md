@@ -100,7 +100,7 @@ The `vanilla-i18n` objects takes the following arguments:
 
 1. `languages`: List of languages same as in the first row of language CSV or the names of the language JSON files without `.json` extension. The above snipper includes list of languages as per the example CSV.
 2. `opts`: These are optional arguments:
-  1. `path`: Path to the language files relative to the root of the website folder. Default: `assets/vanilla-i18n`.
+  1. `path`: Path to the language files relative to the root of the website. Default: `assets/vanilla-i18n`.
   2. `debug`: Shows debug information in browser console. Default: `false`.
   3. `i18n_attr_name`: Name of the data attribute storing the key to be used for translation of the enclosed text (more in next section). Default: `vanilla-i18n`.
   4. `toggler_id`: ID of the `select` element for choosing language. Default: `vanilla-i18n-toggler`.
