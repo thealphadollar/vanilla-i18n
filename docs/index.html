@@ -13,7 +13,7 @@
         new vanilla_i18n(
             languages,
             opts = {
-                path: "vanilla-i18n",
+                path: "/assets/vanilla-i18n",
                 debug: false,
                 i18n_attr_name: "vanilla-i18n",
                 toggler_id: "vanilla-i18n-toggler",
@@ -24,53 +24,56 @@
 </head>
 
 <body>
-    <div>
+    <div align="center">
+        <img src="assets/logo.png">
         <p>A super lightweight JS script to provide [partial] internationalization to your website using translations
             from JSON files. Contibute at <a href="https://github.com/thealphadollar/vanilla-i18n">thealphadollar/vanilla-i18n</a>.</p>
     </div>
-    <form action="http://google.co.in">
+    <br/><br/>
+    <form action="/" method="GET">
         <div align="center">
-            <h1>Fill Your Details!</h1>
-            Language:
+            <i18n vanilla-i18n="language">Language</i18n>:
             <select id="vanilla-i18n-toggler">
                 <option>English</option>
                 <option>हिन्दी</option>
                 <option>français</option>
             </select>
-            Name:
+            <hr>
+            <br/><br/>
+            <h1><i18n vanilla-i18n="form.desc">Fill Your Details!</i18n></h1>
+            <i18n vanilla-i18n="form.name">Name</i18n>:
             <input type="text" name="UserName" size=35 maxlength=35 value="">
             <!--Adds spaces - remove and see what happens -->
             </br></br>
-            Age:
+            <i18n vanilla-i18n="form.age">Age</i18n>:
             <input type="number" name="Age" size=35 maxlength=35 value="">
             </br></br>
-            Do you exercise at home?
+            <i18n vanilla-i18n="form.exe.desc">Do you exercise at home?</i18n>
             <p>
                 <!-- Radio buttons help you choose one out of the many values -->
-                <input type="radio" name="exe" value=1>Yes
-                <input type="radio" name="exe" value=2>No
+                <input type="radio" name="exe" value=1><i18n vanilla-i18n="form.exe.yes">Yes</i18n>
+                <input type="radio" name="exe" value=2><i18n vanilla-i18n="form.exe.no">No</i18n>
             </p>
-            How do you like to read about your favorite topics?
+            <i18n vanilla-i18n="form.topics.desc">How do you like to read about your favorite topics?</i18n>
             <p>
                 <!--Checkbox lets you select multiple options -->
-                <input type="checkbox" name="Books">Books
-                <input type="checkbox" name="Web">Online resources
-                <input type="checkbox" name="Phone">Phone apps
-                <input type="checkbox" name="Magazines">Magazines
+                <input type="checkbox" name="Books"><i18n vanilla-i18n="form.topics.books">Books</i18n>
+                <input type="checkbox" name="Web"><i18n vanilla-i18n="form.topics.web">Online resources</i18n>
+                <input type="checkbox" name="Phone"><i18n vanilla-i18n="form.topics.phone">Phone apps</i18n>
+                <input type="checkbox" name="Magazines"><i18n vanilla-i18n="form.topics.magazines">Magazines</i18n>
             </p>
-            What genre of movies do you like?
+            <i18n vanilla-i18n="form.movies.desc">What genre of movies do you like?</i18n>
             <!--Select box lets you choose one of the multiple dropdown options-->
             <select name="moviepref">
-                <option>
-                <option value=1 selected="true">comedy
-                <option value=2>romance
-                <option value=3>thriller
-                <option value=4>horror
-                <option value=5>biopic
+                <option value=1 selected="true"><i18n vanilla-i18n="form.movies.comedy">comedy</i18n>
+                <option value=2><i18n vanilla-i18n="form.movies.romance">romance</i18n>
+                <option value=3><i18n vanilla-i18n="form.movies.thriller">thriller</i18n>
+                <option value=4><i18n vanilla-i18n="form.movies.horror">horror</i18n>
+                <option value=5><i18n vanilla-i18n="form.movies.biopic">biopic</i18n>
             </select>
             </br></br>
             <!--submits the information entered in the form by the user -->
-            <input type=submit value="Submit">
+            <button type=submit><i18n vanilla-i18n="form.submit">Submit</i18n></button>
         </div>
     </form>
 </body>

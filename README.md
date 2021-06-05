@@ -20,7 +20,7 @@
   </a>
 </p>
 
-<img align="center" alt="vanilla-18n logo" src="assets/logo.png" />
+<img align="center" alt="vanilla-18n logo" src="docs/assets/logo.png" />
 
 > **A super lightweight JS script to provide internationalization to your website using translations from JSON files.**
 
