@@ -40,6 +40,16 @@ Voila! Your visitors can now see the content you have translated without any lar
 
 > It's plain vanilla ~js~ i18n!
 
+## Use Cases
+
+The purpose of the script is to make it as simple as possible to implement translations in a website. Following are some translation cases for the script:
+
+0. only particular words / sentences
+0. a form present
+0. only certain sections
+
+The script is not efficient if you wish to translate entire pages and best suited when only a segment of the webpage is required to be translated.
+
 ## How To Use
 
 The script is simple to add to your website, and following are the details of each of the required steps.
