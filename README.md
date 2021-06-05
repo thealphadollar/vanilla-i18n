@@ -58,16 +58,15 @@ form.name,Name,नाम,Nom
 
 Salient features are:
 
-- first row must provide languages following the key entry
-- first column must be the key for replacement 
-- nested keys are supported, and nesting is depicted by "."
+- first row must provide languages following the key entry (and should be same as the `select` options for choosing language)
+- first column must be the key for replacement (used later to perform replacement in the HTML)
+- nested keys are supported, and nesting is depicted by "." (for example, "form.desc")
 - same key cannot exist in unnested form, for eg. in above CSV, a key `form` should not exist
-
-NOTE: These keys are used later to perform replacement in the HTML, and should be same as the `select` options for choosing language.
+- an easy way to create language translations is using a Google Sheet and `=GOOGLETRANSLATE(COLUMN,SRC_LNG,DEST_LNG)`. Refer [this sheet](https://docs.google.com/spreadsheets/d/1KfPLetq4VUvEApiGtWEUuQUhAYCrocyLmyiHV2cl_ks/edit?usp=sharing) for example. Thereafter, just export the sheet in CSV format.
 
 ### 2. Convert CSV to `vanilla-i18n` Language JSONs
 
-With the provided python script (more details in `csv_to_vanilla-i18n`), convert the CSV to languages JSONs. The filename is based on the first row of the CSV. For eg. for the above CSV, the generated JSON are `English.json`, `हिन्दी.json`, and `français.json`.
+With the provided script (more details in `csv_to_vanilla-i18n`), convert the CSV to languages JSONs. The filename is based on the first row of the CSV. For eg. for the above CSV, the generated JSON are `English.json`, `हिन्दी.json`, and `français.json`.
 
 Provide these language JSON files in your hosting server, default is inside directory `assets/vanilla-i18n` in the root folder of your website.
 

@@ -1,0 +1,19 @@
+vanilla-i18n-key,English,हिन्दी,français
+language,Language,भाषा,Langue
+form.name,Name,नाम,Nom
+form.age,Age,उम्र,Âge
+form.exe.desc,Do you exercise at home?,आप घर पर व्यायाम करते हैं?,Exercez-vous à la maison?
+form.exe.yes,Yes,हाँ,Oui
+form.exe.no,No,नहीं न,Non
+form.topics.desc,How do you like to read about your favorite topics?,आप अपने पसंदीदा विषयों के बारे में पढ़ने के लिए कैसा लगता है?,Comment aimez-vous lire sur vos sujets favoris?
+form.topics.books,Books,पुस्तकें,Livres
+form.topics.web,Online resources,ऑनलाइन संसाधन,Ressources en ligne
+form.topics.phone,Phone apps,फ़ोन ऐप्स,applications téléphoniques
+form.topics.magazines,Magazines,पत्रिका,Les magazines
+form.movies.desc,What genre of movies do you like?,आप फिल्मों में से किस शैली पसंद है?,Quel genre de films aimez-vous?
+form.movies.comedy,Comedy,कॉमेडी,La comédie
+form.movies.romance,Romance,रोमांस,Romance
+form.movies.thriller,Thriller,थ्रिलर,Polar
+form.movies.horror,Horror,डरावनी,Horreur
+form.movies.biopic,Biopic,बायोपिक,biopic
+form.submit,Submit,प्रस्तुत,Soumettre
