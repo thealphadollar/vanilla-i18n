@@ -14,13 +14,13 @@ To run the script, `python3 csv_to_vanilla_i18n.py [parameters]`.
 
 For parameters in the above line, you have several options:
 
-* You can specify the sheet ID and worksheet name of a Google Sheets worksheet, in that order, separated by a space. (Do NOT enter the entire URL to the Google Sheet.)
+* You can specify the sheet ID and worksheet name of a Google Sheets worksheet, in that order, separated by a space. Eg. `python3 csv_to_vanilla_i18n.py 1KfPLetq4VUvEApiGtWEUuQUhAYCrocyLmyiHV2cl_ks Sheet1`
 
-* You can specify only the sheet ID and let the worksheet name default to ‘Sheet1’.
+* You can specify only the sheet ID and let the worksheet name default to ‘Sheet1’. Eg. `python3 csv_to_vanilla_i18n.py 1KfPLetq4VUvEApiGtWEUuQUhAYCrocyLmyiHV2cl_ks`
 
-* You can specify only the path to a local language CSV file. Be sure to include the .csv extension.
+* You can specify only the path to a local language CSV file. Be sure to include the .csv extension. Eg. `python3 csv_to_vanilla_i18n.py /path/to/csv`
 
-* You can omit the parameters completely. Then you will be prompted for the name of a local language CSV file. Be sure to include the .csv extension.
+* You can omit the parameters completely. Then you will be prompted for the name of a local language CSV file. Be sure to include the .csv extension. Eg. `python3 csv_to_vanilla_i18n.py`
 
 ## How to use NodeJS script
 
