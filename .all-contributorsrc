@@ -40,6 +40,15 @@
       "contributions": [
         "maintenance"
       ]
+    },
+    {
+      "login": "RandallWert",
+      "name": "Randall Wert",
+      "avatar_url": "https://avatars.githubusercontent.com/u/20331611?v=4",
+      "profile": "https://github.com/RandallWert",
+      "contributions": [
+        "maintenance"
+      ]
     }
   ],
   "contributorsPerLine": 7
