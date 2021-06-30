@@ -1,4 +1,4 @@
-<h1 align="center">Welcome to vanilla-i18n 👋</h1>
+<h1 align="center">Welcome to vanilla-i18 👋</h1>
 <p>
   <a href="https://www.npmjs.com/package/vanilla-i18n" target="_blank">
     <img alt="Version" src="https://img.shields.io/npm/v/vanilla-i18n.svg">
