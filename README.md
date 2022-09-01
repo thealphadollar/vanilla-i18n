@@ -9,8 +9,8 @@
   <a href="https://github.com/thealphadollar/vanilla-i18n/blob/master/LICENSE" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
   </a>
-  <a href="https://twitter.com/thealphadollar_" target="_blank">
-    <img alt="Twitter: thealphadollar_" src="https://img.shields.io/twitter/follow/thealphadollar_.svg?style=social" />
+  <a href="https://twitter.com/thealphadollar" target="_blank">
+    <img alt="Twitter: thealphadollar" src="https://img.shields.io/twitter/follow/thealphadollar.svg?style=social" />
   </a>
   <a href="https://github.com/thealphadollar?tab=followers" target="_blank">
     <img alt="Github: thealphadollar" src="https://img.shields.io/github/followers/thealphadollar.svg?style=social&label=Follow&maxAge=2592000" />
