@@ -40,16 +40,16 @@ def add_to_dict(root, key, value):
             add_to_dict(root[cur_key], '.'.join(keys[1:]), value)
 
 
-def main(path_to_file):
+def main(path_to_file, delimiter):
     languages = dict()
     reader = None
     if 'google.com' in path_to_file:
         r = requests.get(path_to_file)
         buff = io.StringIO(r.text)
-        reader = csv.DictReader(buff)        
+        reader = csv.DictReader(buff, delimiter=delimiter)
     else:
         f = open(path_to_file, 'r')
-        reader = csv.DictReader(f)
+        reader = csv.DictReader(f, delimiter=delimiter)
     id_field_key = reader.fieldnames[0]
     for language in reader.fieldnames[1:]:
         languages[language] = dict()
@@ -71,18 +71,27 @@ def main(path_to_file):
 if __name__ == "__main__":
     path_to_file = None
     sheet_id = None
-    worksheet_name = None
+    worksheet_name = 'Sheet1'
+    delimiter = ","
+
+    if sys.argv[len(sys.argv) - 1] in ["|", "/", ":", ";", "-", ","]:
+        delimiter = sys.argv[len(sys.argv) - 1]
+        sys.argv = sys.argv[:-1]
+    elif len(sys.argv[len(sys.argv) - 1]) == 1:
+        print("Only one of the \"|/:;-\" is allowed as delimiter!")
+
     if len(sys.argv) == 3:
         sheet_id = sys.argv[1]
         worksheet_name = sys.argv[2]
-        path_to_file = 'https://docs.google.com/spreadsheets/d/{0}/gviz/tq?tqx=out:csv&sheet={1}'.format(sheet_id, worksheet_name)
+        path_to_file = 'https://docs.google.com/spreadsheets/d/{0}/gviz/tq?tqx=out:csv&sheet={1}'.format(
+            sheet_id, worksheet_name)
     elif len(sys.argv) == 2:
         if '.csv' in sys.argv[1]:
             path_to_file = sys.argv[1]
         else:
             sheet_id = sys.argv[1]
-            worksheet_name = 'Sheet1'
-            path_to_file = 'https://docs.google.com/spreadsheets/d/{0}/gviz/tq?tqx=out:csv&sheet={1}'.format(sheet_id, worksheet_name)
+            path_to_file = 'https://docs.google.com/spreadsheets/d/{0}/gviz/tq?tqx=out:csv&sheet={1}'.format(
+                sheet_id, worksheet_name)
     elif len(sys.argv) <= 1 and path_to_file is None:
         path_to_file = input("Enter path to CSV file: ")
-    main(path_to_file)
+    main(path_to_file, delimiter)
