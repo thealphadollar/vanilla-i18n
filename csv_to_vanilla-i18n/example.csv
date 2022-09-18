@@ -37,6 +37,22 @@ form.movies.options,"<select name=""moviepref"">
                 </option>
             </select>","<select name=""moviepref"">
                 <option value=1 selected=""true"">
+                    <i18n vanilla-i18n=""form.movies.comedy"">comedia</i18n>
+                </option>
+                <option value=2>
+                    <i18n vanilla-i18n=""form.movies.romance"">romance</i18n>
+                </option>
+                <option value=3>
+                    <i18n vanilla-i18n=""form.movies.thriller"">suspenso</i18n>
+                </option>
+                <option value=4>
+                    <i18n vanilla-i18n=""form.movies.horror"">terror</i18n>
+                </option>
+                <option value=5>
+                    <i18n vanilla-i18n=""form.movies.biopic"">película biográfica</i18n>
+                </option>
+            </select>","<select name=""moviepref"">
+                <option value=1 selected=""true"">
                     <i18n vanilla-i18n=""form.movies.comedy"">La comédie</i18n>
                 </option>
                 <option value=2>
