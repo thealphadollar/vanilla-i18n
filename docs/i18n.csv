@@ -1,17 +1,17 @@
-vanilla-i18n-key,English,हिन्दी,français
-language,Language,भाषा,Langue
-form.desc,Fill Your Details!,आपका विवरण भरें!,Remplissez vos détails!
-form.name,Name,नाम,Nom
-form.age,Age,उम्र,Âge
-form.exe.desc,Do you exercise at home?,आप घर पर व्यायाम करते हैं?,Exercez-vous à la maison?
-form.exe.yes,Yes,हाँ,Oui
-form.exe.no,No,नहीं न,Non
-form.topics.desc,How do you like to read about your favorite topics?,आप अपने पसंदीदा विषयों के बारे में पढ़ने के लिए कैसा लगता है?,Comment aimez-vous lire sur vos sujets favoris?
-form.topics.books,Books,पुस्तकें,Livres
-form.topics.web,Online resources,ऑनलाइन संसाधन,Ressources en ligne
-form.topics.phone,Phone apps,फ़ोन ऐप्स,applications téléphoniques
-form.topics.magazines,Magazines,पत्रिका,Les magazines
-form.movies.desc,What genre of movies do you like?,आप फिल्मों में से किस शैली पसंद है?,Quel genre de films aimez-vous?
+vanilla-i18n-key,English,हिन्दी,français,Español
+language,Language,भाषा,Langue,Idioma
+form.desc,Fill Your Details!,आपका विवरण भरें!,Remplissez vos détails!,Ingresa Tus Datos!
+form.name,Name,नाम,Nom,Nombre
+form.age,Age,उम्र,Âge,Edad
+form.exe.desc,Do you exercise at home?,आप घर पर व्यायाम करते हैं?,Exercez-vous à la maison?,¿Te ejercitas en casa?
+form.exe.yes,Yes,हाँ,Oui,Sí
+form.exe.no,No,नहीं न,Non,No
+form.topics.desc,How do you like to read about your favorite topics?,आप अपने पसंदीदा विषयों के बारे में पढ़ने के लिए कैसा लगता है?,Comment aimez-vous lire sur vos sujets favoris?,¿Cómo te gusta leer sobre tus temas favoritos?
+form.topics.books,Books,पुस्तकें,Livres,Libros
+form.topics.web,Online resources,ऑनलाइन संसाधन,Ressources en ligne,Recursos en línea
+form.topics.phone,Phone apps,फ़ोन ऐप्स,applications téléphoniques,Apps de teléfono
+form.topics.magazines,Magazines,पत्रिका,Les magazines,Revistas
+form.movies.desc,What genre of movies do you like?,आप फिल्मों में से किस शैली पसंद है?,Quel genre de films aimez-vous?,¿Qué género de películas te gusta?
 form.movies.options,"<select name=""moviepref"">
                 <option value=1 selected=""true"">
                     <i18n vanilla-i18n=""form.movies.comedy"">comedy</i18n>
@@ -60,5 +60,21 @@ form.movies.options,"<select name=""moviepref"">
                 <option value=5>
                     <i18n vanilla-i18n=""form.movies.biopic"">biopic</i18n>
                 </option>
+            </select>","<select name=""moviepref"">
+                <option value=1 selected=""true"">
+                    <i18n vanilla-i18n=""form.movies.comedy"">Comedia</i18n>
+                </option>
+                <option value=2>
+                    <i18n vanilla-i18n=""form.movies.romance"">Romance</i18n>
+                </option>
+                <option value=3>
+                    <i18n vanilla-i18n=""form.movies.thriller"">Thriller</i18n>
+                </option>
+                <option value=4>
+                    <i18n vanilla-i18n=""form.movies.horror"">Horror</i18n>
+                </option>
+                <option value=5>
+                    <i18n vanilla-i18n=""form.movies.biopic"">Biográfica</i18n>
+                </option>
             </select>"
-form.submit,Submit,प्रस्तुत,Soumettre
+form.submit,Submit,प्रस्तुत,Soumettre,Enviar

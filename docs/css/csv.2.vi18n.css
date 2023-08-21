@@ -1,0 +1,149 @@
+:root {
+  --background-color: #fff7f5;
+  --first-color: #ff3e20;
+  --second-color: #ff5d45;
+  /* --third-color: #ffe2db; */
+  --third-color: #ffb3a0;
+  --fourth-color: #ff9d85;
+  --first-text: #000;
+  --second-text: #fff;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  color: var(--first-text);
+  transition: background .2s ease-in-out;
+}
+
+html {
+  background-color: var(--background-color);
+}
+
+h1, h2 {
+  text-align: center;
+  margin: 10px;
+}
+
+#languages-container {
+  position: relative;
+  left: -200%;
+  transition: left 0.5s;
+}
+
+.language-container {
+  display: flex;
+  background-color: var(--third-color);
+  margin: 15px 10px;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.language-name {
+  font-weight: bold;
+  font-size: 1.2rem;
+  flex: 4;
+  padding: 10px;
+  margin-left: 20px;
+}
+
+.language-download-button {
+  flex: 1;
+  padding: 10px;
+  background-color: var(--first-color);
+  text-align: center;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.language-download-button:hover {
+  background-color: var(--second-color);
+}
+
+.zip-button {
+  display: block;
+  margin: 15px;
+  padding: 15px;
+  border-radius: 15px;
+	background-color: var(--first-color);
+	color: var(--second-text);
+	font-weight: bold;
+	cursor: pointer;
+  text-align: center;
+}
+
+.zip-button:hover {
+  background-color: var(--second-color);
+}
+
+.csv-input-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.csv-url {
+  display: flex;
+  margin: 10px;
+  flex: 1;
+  cursor: pointer;
+  background-color: var(--third-color);
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.url-input {
+  flex: 3;
+  padding: 30px;
+  border: 0;
+  outline: none;
+  text-align: center;
+  background-color: var(--third-color);
+}
+
+.csv-button {
+  flex: 1;
+	border: 0;
+	background-color: var(--first-color);
+	color: var(--second-text);
+	text-decoration: none;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.csv-button:hover {
+  background-color: var(--second-color);
+}
+
+.url-input:focus {
+  background-color: var(--fourth-color);
+}
+
+.csv-file-input {
+  flex: 1;
+  margin: 10px;
+}
+
+input[type=file] {
+  width: 100%;
+  padding: 20px;
+  cursor: pointer;
+  background-color: var(--third-color);
+  border-radius: 15px;
+}
+
+input[type=file]::file-selector-button {
+  margin-right: 20px;
+  border: none;
+  background: var(--first-color);
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: var(--first-text);
+  cursor: pointer;
+}
+
+input[type=file]::file-selector-button:hover {
+  background: var(--second-color);
+}
+
