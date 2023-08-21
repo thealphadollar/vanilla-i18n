@@ -36,13 +36,13 @@ To run the script, `node csv_to_json.js`. After running the script enter `PATH_T
 
 If you only want to convert your CSV file into Vanilla-i18n file format you should check [our web here](#). 
 
-The Browser runnable version are in `browser/csv_to_vanilla_i18.browser.js`, you can use the minified version too. To implement this script in your web you will need to import [`JSZip`](https://github.com/Stuk/jszip), [`JQuey`](https://jquery.com/download/) and [`jquery-csv`](https://github.com/evanplaice/jquery-csv). So your head tag should be like this:
+The Browser runnable version are in `browser/csv_to_vanilla_i18n.browser.js`, you can use the min version too. To implement this script in your web you will need to import [`JSZip`](https://github.com/Stuk/jszip), [`JQuey`](https://jquery.com/download/) and [`jquery-csv`](https://github.com/evanplaice/jquery-csv). So your head tag should be like this:
 
 ```html
 <script src="js/jquery.min.js"></script>
 <script src="js/jquery.csv.min.js"></script>
 <script src="js/jszip.min.js"></script>
-<script src="js/csv_to_vanilla_i18.browser.min.js"></script> <!-- This needs to be after the other ones. -->
+<script src="js/csv_to_vanilla_i18n.browser.min.js"></script> <!-- This needs to be after the other ones. -->
 ```
 
 The usage of this script is very easy:
