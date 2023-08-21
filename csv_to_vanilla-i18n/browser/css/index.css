@@ -1,0 +1,139 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  color: #dedede;
+}
+
+html {
+  background-color: #222;
+}
+
+h1, h2 {
+  text-align: center;
+  margin: 10px;
+}
+
+#languages-container {
+  position: relative;
+  left: -200%;
+  transition: left 0.5s;
+}
+
+.language-container {
+  display: flex;
+  background-color: #333;
+  margin: 15px 10px;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.language-name {
+  font-weight: bold;
+  font-size: 1.2rem;
+  flex: 4;
+  padding: 10px;
+  margin-left: 20px;
+}
+
+.language-download-button {
+  flex: 1;
+  padding: 10px;
+  background-color: #535353;
+  text-align: center;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.language-download-button:hover {
+  background-color: #636363;
+}
+
+.zip-button {
+  display: block;
+  margin: 15px;
+  padding: 15px;
+  border-radius: 15px;
+	background-color: #00750a;
+	color: #fff;
+	font-weight: bold;
+	cursor: pointer;
+  text-align: center;
+}
+
+.zip-button:hover {
+  background-color: #009b0d;
+}
+
+.csv-input-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.csv-url {
+  display: flex;
+  margin: 10px;
+  flex: 1;
+  cursor: pointer;
+  background-color: #333;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.url-input {
+  flex: 3;
+  height: 7;
+  padding: 30px;
+  border: 0;
+  outline: none;
+  text-align: center;
+  background-color: #404040;
+}
+
+.csv-button {
+  flex: 1;
+	border: 0;
+	background-color: #00750a;
+	color: #fff;
+	text-decoration: none;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.csv-button:hover {
+  background-color: #009b0d;
+}
+
+.url-input:focus {
+  background-color: #545454;
+}
+
+.csv-file-input {
+  flex: 1;
+  margin: 10px;
+}
+
+input[type=file] {
+  width: 100%;
+  padding: 20px;
+  cursor: pointer;
+  background-color: #333;
+  border-radius: 15px;
+}
+
+input[type=file]::file-selector-button {
+  margin-right: 20px;
+  border: none;
+  background: #535353;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  transition: background .2s ease-in-out;
+}
+
+input[type=file]::file-selector-button:hover {
+  background: #6e6e6e;
+}
+
