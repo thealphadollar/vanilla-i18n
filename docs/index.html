@@ -2,102 +2,110 @@
 <html>
 
 <head>
-    <title>vanilla-i18n Demo</title>
-    <script src="https://cdn.jsdelivr.net/gh/thealphadollar/vanilla-i18n/src/vanilla-i18n.min.js"></script>
-    <script>
-        const languages = [
-            "English",
-            "हिन्दी",
-            "français"
-        ];
-        new vanilla_i18n(
-            languages,
-            opts = {
-                path: "docs/assets/vanilla-i18n",
-                debug: true,
-                i18n_attr_name: "vanilla-i18n",
-                toggler_id: "vanilla-i18n-toggler",
-                default_language: languages[0],
-            }
-        ).run();
-    </script>
+  <title>Vanilla-i18n</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="css/index.css">
+
+  <script src="https://cdn.jsdelivr.net/gh/thealphadollar/vanilla-i18n/src/vanilla-i18n.min.js"></script>
+  <script src="js/index.js"></script>
 </head>
 
 <body>
-    <div align="center">
-        <img src="assets/logo.png">
-        <p>A super lightweight JS script to provide [partial] internationalization to your website using translations
-            from JSON files. Contibute at <a
-                href="https://github.com/thealphadollar/vanilla-i18n">thealphadollar/vanilla-i18n</a>.</p>
-    </div>
-    <br /><br />
-    <form action="/" method="GET">
-        <div align="center">
-            <i18n vanilla-i18n="language">Language</i18n>
-            <select id="vanilla-i18n-toggler">
-                <option>English</option>
-                <option>हिन्दी</option>
-                <option>français</option>
-            </select>
-            <hr>
-            <br /><br />
-            <h1>
-                <i18n vanilla-i18n="form.desc">Fill Your Details!</i18n>
-            </h1>
-            <i18n vanilla-i18n="form.name">Name</i18n>:
-            <input type="text" name="UserName" size=35 maxlength=35 value="">
-            <!--Adds spaces - remove and see what happens -->
-            </br></br>
-            <i18n vanilla-i18n="form.age">Age</i18n>:
-            <input type="number" name="Age" size=35 maxlength=35 value="">
-            </br></br>
-            <i18n vanilla-i18n="form.exe.desc">Do you exercise at home?</i18n>
-            <p>
-                <!-- Radio buttons help you choose one out of the many values -->
-                <input type="radio" name="exe" value=1>
-                <i18n vanilla-i18n="form.exe.yes">Yes</i18n>
-                <input type="radio" name="exe" value=2>
-                <i18n vanilla-i18n="form.exe.no">No</i18n>
-            </p>
-            <i18n vanilla-i18n="form.topics.desc">How do you like to read about your favorite topics?</i18n>
-            <p>
-                <!--Checkbox lets you select multiple options -->
-                <input type="checkbox" name="Books">
-                <i18n vanilla-i18n="form.topics.books">Books</i18n>
-                <input type="checkbox" name="Web">
-                <i18n vanilla-i18n="form.topics.web">Online resources</i18n>
-                <input type="checkbox" name="Phone">
-                <i18n vanilla-i18n="form.topics.phone">Phone apps</i18n>
-                <input type="checkbox" name="Magazines">
-                <i18n vanilla-i18n="form.topics.magazines">Magazines</i18n>
-            </p>
-            <i18n vanilla-i18n="form.movies.desc">What genre of movies do you like?</i18n>
-            <!--Select box lets you choose one of the multiple dropdown options-->
-            <i18n vanilla-i18n="form.movies.options"><select name="moviepref">
-                <option value=1 selected="true">
-                    comedy
-                </option>
-                <option value=2>
-                    romance
-                </option>
-                <option value=3>
-                    thriller
-                </option>
-                <option value=4>
-                    horror
-                </option>
-                <option value=5>
-                    biopic
-                </option>
-            </select>
-            </i18n>
-            </br></br>
-            <!--submits the information entered in the form by the user -->
-            <button type=submit>
-                <i18n vanilla-i18n="form.submit">Submit</i18n>
-            </button>
-        </div>
-    </form>
-</body>
 
+  <img class="vanilla-i18n-logo" src="assets/logo.png">
+  <p class="introduction-text">
+    A <b>super lightweight</b> JS script to provide <i>[partial]</i> internationalization to your website using translations from JSON files. <br>
+    Contibute at
+    <a href="https://github.com/thealphadollar/vanilla-i18n">thealphadollar/vanilla-i18n</a>.
+  </p>
+
+  <p class="introduction-text" >You can convert your CSV files into <b>Vanilla-i18n</b> file format following the mext button.</p>
+  <a class="csv-yo-vi18n-json-button-container">Convert CSV to Vanilla-i18n</a>
+
+
+  <form class="vanilla-i18n-example-container" action="/" method="GET">
+    <div align="center">
+
+      <div class="toggler-container">
+        <i18n class="toggler-label" vanilla-i18n="language">Language</i18n>
+        <select class="toggler-select" id="vanilla-i18n-toggler">
+          <option>English</option>
+          <option>हिन्दी</option>
+          <option>français</option>
+        </select>
+      </div>
+
+      <hr>
+
+      <h1 class="example-title">
+        <i18n vanilla-i18n="form.desc">Fill Your Details!</i18n>
+      </h1>
+
+      <div class="text-input-container">
+        <i18n class="example-input-label" vanilla-i18n="form.name">Name</i18n>
+        <input type="text" name="UserName" maxlength=35 value="">
+      </div>
+
+      <div class="text-input-container">
+        <i18n class="example-input-label" vanilla-i18n="form.age">Age</i18n>
+        <input type="number" name="Age" maxlength=35 value="">
+      </div>
+
+
+      <div class="options-input-container">
+        <i18n class="options-input-label" vanilla-i18n="form.exe.desc">Do you exercise at home?</i18n>
+        <div class="options-input-menu-container">
+          <span class="options-input-item-container">
+            <input type="radio" name="exe" value=1>
+            <i18n vanilla-i18n="form.exe.yes">Yes</i18n>
+          </span>
+          <span class="options-input-item-container">
+            <input type="radio" name="exe" value=2>
+            <i18n vanilla-i18n="form.exe.no">No</i18n>
+          </span>
+        </div>
+      </div>
+
+      <div class="options-input-container">
+        <i18n class="options-input-label" vanilla-i18n="form.topics.desc">How do you like to read about your favorite topics?</i18n>
+        <span class="options-input-item-container">
+          <input type="checkbox" name="Books">
+          <i18n vanilla-i18n="form.topics.books">Books</i18n>
+        </span>
+        <span class="options-input-item-container">
+          <input type="checkbox" name="Web">
+          <i18n vanilla-i18n="form.topics.web">Online resources</i18n>
+        </span>
+        <span class="options-input-item-container">
+          <input type="checkbox" name="Phone">
+          <i18n vanilla-i18n="form.topics.phone">Phone apps</i18n>
+        </span>
+        <span class="options-input-item-container">
+          <input type="checkbox" name="Magazines">
+          <i18n vanilla-i18n="form.topics.magazines">Magazines</i18n>
+        </span>
+      </div>
+
+      <div class="movie-container">
+        <i18n class="movie-label" vanilla-i18n="form.movies.desc">What genre of movies do you like?</i18n>
+        <i18n vanilla-i18n="form.movies.options">
+          <select name="moviepref">
+            <option value=1 selected="true">comedy</option>
+            <option value=2>romance</option>
+            <option value=3>thriller</option>
+            <option value=4>horror</option>
+            <option value=5>biopic</option>
+          </select>
+        </i18n>
+      </div>
+
+      <button class="submit-button" type=submit>
+        <i18n vanilla-i18n="form.submit">Submit</i18n>
+      </button>
+
+    </div>
+  </form>
+
+</body>
 </html>
