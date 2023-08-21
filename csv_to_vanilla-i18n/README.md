@@ -32,6 +32,39 @@ NOTE: NodeJS should be installed to use the script, download it from [here](http
 
 To run the script, `node csv_to_json.js`. After running the script enter `PATH_TO_LANGUAGE_CSV`
 
+## How to use Browser script
+
+If you only want to convert your CSV file into Vanilla-i18n file format you should check [our web here](#). 
+
+The Browser runnable version are in `browser/csv_to_vanilla_i18.browser.js`, you can use the minified version too. To implement this script in your web you will need to import [`JSZip`](https://github.com/Stuk/jszip), [`JQuey`](https://jquery.com/download/) and [`jquery-csv`](https://github.com/evanplaice/jquery-csv). So your head tag should be like this:
+
+```html
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.csv.min.js"></script>
+<script src="js/jszip.min.js"></script>
+<script src="js/csv_to_vanilla_i18.browser.min.js"></script> <!-- This needs to be after the other ones. -->
+```
+
+The usage of this script is very easy:
+
+```javascript
+const csvParser = new csv2vi18n(csv_text_plain, { separator: "," });
+
+csvParser.getLanguages(); // Get an Array with languages name.
+csvParser.getLanguageObject("français");  // Get the language Object in vanilla-i18n format.
+csvParser.downloadLanguageJson("English");  // Download the language JSON in vanilla-i18n file format.
+csvParser.downloadZip();  // Download ZIP with all languages in vanilla-i18n file format.
+
+/*  
+File structure of zip file:
+
+  vanilla-i18n
+  ├── English.json
+  ├── français.json
+  └── हिन्दी.json
+*/
+```
+
 ## After running the script
 
 The script generates the language JSON files with the filename `LANGUAGE.json`, where "LANGUAGE" is the language that the file represents from the CSV, in directory `vanilla-i18n` in the same folder.

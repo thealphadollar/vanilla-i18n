@@ -1,12 +1,15 @@
+/**
+ * Class to transform a CSV text to Vanilla-i18n json file format.
+ * @author IsmaCortGtz - thealphadollar/vanilla-i18n
+ * @version 1.0.0
+ */
 class csv2vi18n {
   // Settings
   #csv
-  #double_quotationmark;
-  #lastbeggin_quotationmark;
-  #delimiter;
-  #breakline;
+  #separator;
 
   // Class vars
+  #languages = [];
   #matrixData;
   #result;
   #currentLanguage;
@@ -14,29 +17,46 @@ class csv2vi18n {
   #currentDepth;
   #depthArray;
   #tempLanguage;
-  #cleanedText;
-  #qmSplited;
   #searchResult;
   #downloadElement;
   #zip;
   #zipFolder;
 
-  constructor(csv_text = "", {double_quotationmark=true, lastbeggin_quotationmark=true, delimiter=",", breakline="\r\n"} = {}){
+  /**
+  * Transform a CSV text to Vanilla-i18n json file format
+  * @param {string} csv_text - The CSV data in plain text.
+  * @param {Object.<string>} options - { separator: "," } - Cell delimiter to parse CSV.
+  */
+  constructor(csv_text = "", {separator=","} = {}){
     this.#csv = csv_text;
-    this.#double_quotationmark = double_quotationmark;
-    this.#lastbeggin_quotationmark = lastbeggin_quotationmark;
-    this.#delimiter = delimiter;
-    this.#breakline = breakline;
+    this.#separator = separator;
     this.#parseCSV();
   }
 
+
+  /**
+  * Get the languages array of csv.
+  * @return {Array.<string>} Language names in CSV header.
+  */
+  getLanguages() { return this.#languages; }
+
+
+  /**
+  * Get the Language JS Object.
+  * @param {string} languageID - The name of language in CSV header.
+  * @return {Object} LObject in Vanilla-i18n file format.
+  */
   getLanguageObject(languageID){
     if (this.#result.length === 0) return;
     this.#searchResult = this.#result.filter((obj) => obj.lang === languageID);
     return this.#searchResult[0].data;
   }
 
-  getSingleLanguageJson(languageID){
+  /**
+  * Download JSON file from language in Vanilla-i18n file format.
+  * @param {string} languageID - The name of language in CSV header.
+  */
+  downloadLanguageJson(languageID){
     if (this.#result.length === 0) return;
     
     this.#downloadElement = document.createElement("a")
@@ -45,12 +65,15 @@ class csv2vi18n {
     this.#downloadElement.click();
   }
 
+  /**
+  * Download a ZIP file with all languages in Vanilla-i18n file format. The JSON files will be inside a "vanilla-i18n" folder:
+  */
   downloadZip(){
     if (JSZip === undefined) { console.error("You need to use JSZip!!"); return}
     this.#zip = new JSZip();
     this.#zipFolder = this.#zip.folder("vanilla-i18n");
 
-    this.languages.forEach((language) => {
+    this.#languages.forEach((language) => {
       this.#zipFolder.file(`${language}.json`, JSON.stringify(this.getLanguageObject(language)));
     });
 
@@ -62,28 +85,13 @@ class csv2vi18n {
     });
   }
 
-  #cleanQuotationMarks(text){
-    this.#cleanedText = text;
-    if (this.#lastbeggin_quotationmark) {
-      this.#qmSplited = this.#cleanedText.split("");
-      if (this.#qmSplited[0] !== `"` && this.#qmSplited[this.#qmSplited.length - 1] !== `"`) return text;
-      this.#cleanedText = this.#qmSplited.splice(1, this.#qmSplited.length - 2).join("");
-    }
-  
-    if (this.#double_quotationmark){
-      this.#cleanedText = this.#cleanedText.replaceAll(`""`, `"`);
-    }
-    
-    return this.#cleanedText;
-  }
-
   #getLanguage(languageIndex){
     this.#currentLanguage = {};
     this.#matrixData.forEach((row) => {
 
       this.#currentKey = row[languageIndex];
       if (!row[0].includes(".")) {
-        this.#currentLanguage[row[0]] = this.#cleanQuotationMarks(this.#currentKey);
+        this.#currentLanguage[row[0]] = this.#currentKey;
         return;
       }
   
@@ -92,7 +100,7 @@ class csv2vi18n {
       this.#depthArray.forEach((depthName, index) => {
         if (this.#currentDepth[depthName] === undefined) this.#currentDepth[depthName] = {};
         if (this.#depthArray.length - 1 !== index) this.#currentDepth = this.#currentDepth[depthName];
-        if (this.#depthArray.length - 1 === index) this.#currentDepth[depthName] = this.#cleanQuotationMarks(this.#currentKey);
+        if (this.#depthArray.length - 1 === index) this.#currentDepth[depthName] = this.#currentKey;
       });
     });
     return this.#currentLanguage;
@@ -100,21 +108,10 @@ class csv2vi18n {
 
   #parseCSV(){
     this.#result = [];
-    this.#matrixData = [];
-
-    this.languages = this.#csv
-      .split(this.#breakline)[0]
-      .split(this.#delimiter)
-      .splice(1);
-  
-    this.#csv
-      .split(this.#breakline)
-      .splice(1)
-      .forEach((row, index) => {
-        this.#matrixData[index] = row.split(this.#delimiter);
-    });
+    this.#matrixData = $.csv.toArrays(this.#csv, {separator: this.#separator}).splice(1);
+    this.#languages = $.csv.toArrays(this.#csv, {separator: this.#separator})[0].splice(1);
     
-    this.languages.forEach((language, index) => {
+    this.#languages.forEach((language, index) => {
       this.#tempLanguage = {"lang": language};
       this.#tempLanguage["data"] = this.#getLanguage(index + 1);
       this.#result.push(this.#tempLanguage);
