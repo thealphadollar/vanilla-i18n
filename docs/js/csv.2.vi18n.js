@@ -51,7 +51,7 @@ function renderData(){
 
     var buttonLangElemetn = document.createElement("span");
     buttonLangElemetn.setAttribute("class", "language-download-button");
-    buttonLangElemetn.setAttribute("onclick", `csvParser.getSingleLanguageJson("${language}");`);
+    buttonLangElemetn.setAttribute("onclick", `csvParser.downloadLanguageJson("${language}");`);
     buttonLangElemetn.innerHTML = "📥";
 
     lanContainerElement.appendChild(titleLangElemetn);
