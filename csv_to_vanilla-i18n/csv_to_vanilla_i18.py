@@ -1,6 +1,16 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Jun  8 11:04:16 2021
+
+@author: randallwert
+"""
+
 import csv
+import io
 import json
 import os
+import requests
 import sys
 
 OUTPUT_DIR = 'vanilla-i18n'
@@ -30,18 +40,26 @@ def add_to_dict(root, key, value):
             add_to_dict(root[cur_key], '.'.join(keys[1:]), value)
 
 
-def main(path_to_file):
+def main(path_to_file, delimiter):
     languages = dict()
-    with open(path_to_file, 'r') as f:
-        reader = csv.DictReader(f)
-        id_field_key = reader.fieldnames[0]
-        for language in reader.fieldnames[1:]:
-            languages[language] = dict()
-        print("DEBUG: Languages found are {}".format(list(languages.keys())))
-        for i, row in enumerate(reader):
-            for language in languages.keys():
-                add_to_dict(languages[language], row[id_field_key],
-                            row[language])
+    reader = None
+    if 'google.com' in path_to_file:
+        r = requests.get(path_to_file)
+        buff = io.StringIO(r.text)
+        reader = csv.DictReader(buff, delimiter=delimiter)
+    else:
+        f = open(path_to_file, 'r')
+        reader = csv.DictReader(f, delimiter=delimiter)
+    id_field_key = reader.fieldnames[0]
+    for language in reader.fieldnames[1:]:
+        languages[language] = dict()
+    print("DEBUG: Languages found are {}".format(list(languages.keys())))
+    for i, row in enumerate(reader):
+        for language in languages.keys():
+            add_to_dict(languages[language], row[id_field_key],
+                        row[language])
+    if 'google.com' not in path_to_file:
+        f.close()
     os.makedirs(OUTPUT_DIR, exist_ok=True)
     for language in languages.keys():
         with open(os.path.join(OUTPUT_DIR, language + '.json'), 'w') as f:
@@ -52,8 +70,28 @@ def main(path_to_file):
 
 if __name__ == "__main__":
     path_to_file = None
-    if len(sys.argv) <= 1 and path_to_file is None:
+    sheet_id = None
+    worksheet_name = 'Sheet1'
+    delimiter = ","
+
+    if sys.argv[len(sys.argv) - 1] in ["|", "/", ":", ";", "-", ","]:
+        delimiter = sys.argv[len(sys.argv) - 1]
+        sys.argv = sys.argv[:-1]
+    elif len(sys.argv[len(sys.argv) - 1]) == 1:
+        print("Only one of the \"|/:;-\" is allowed as delimiter!")
+
+    if len(sys.argv) == 3:
+        sheet_id = sys.argv[1]
+        worksheet_name = sys.argv[2]
+        path_to_file = 'https://docs.google.com/spreadsheets/d/{0}/gviz/tq?tqx=out:csv&sheet={1}'.format(
+            sheet_id, worksheet_name)
+    elif len(sys.argv) == 2:
+        if '.csv' in sys.argv[1]:
+            path_to_file = sys.argv[1]
+        else:
+            sheet_id = sys.argv[1]
+            path_to_file = 'https://docs.google.com/spreadsheets/d/{0}/gviz/tq?tqx=out:csv&sheet={1}'.format(
+                sheet_id, worksheet_name)
+    elif len(sys.argv) <= 1 and path_to_file is None:
         path_to_file = input("Enter path to CSV file: ")
-    else:
-        path_to_file = sys.argv[1]
-    main(path_to_file)
+    main(path_to_file, delimiter)

@@ -9,8 +9,8 @@
   <a href="https://github.com/thealphadollar/vanilla-i18n/blob/master/LICENSE" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
   </a>
-  <a href="https://twitter.com/thealphadollar_" target="_blank">
-    <img alt="Twitter: thealphadollar_" src="https://img.shields.io/twitter/follow/thealphadollar_.svg?style=social" />
+  <a href="https://twitter.com/thealphadollar" target="_blank">
+    <img alt="Twitter: thealphadollar" src="https://img.shields.io/twitter/follow/thealphadollar.svg?style=social" />
   </a>
   <a href="https://github.com/thealphadollar?tab=followers" target="_blank">
     <img alt="Github: thealphadollar" src="https://img.shields.io/github/followers/thealphadollar.svg?style=social&label=Follow&maxAge=2592000" />
@@ -20,11 +20,11 @@
   </a>
 </p>
 
-<img align="center" alt="vanilla-18n logo" src="assets/logo.png" />
+<img align="center" alt="vanilla-18n logo" src="docs/assets/logo.png" />
 
 > **A super lightweight JS script to provide internationalization to your website using translations from JSON files.**
 
-### 🏠 [Homepage](https://github.com/thealphadollar/vanilla-i18n)
+### 🏠 [Demo Page](https://thealphadollar.me/vanilla-i18n/)
 
 ## Motivation
 
@@ -39,6 +39,16 @@ This library aims to solve the problem of providing internationalization (transl
 Voila! Your visitors can now see the content you have translated without any large overhead, delay, or using sophisticated libraries on your side.
 
 > It's plain vanilla ~js~ i18n!
+
+## Use Cases
+
+The purpose of the script is to make it as simple as possible to implement translations in a website. Following are some translation cases for the script:
+
+0. only particular words / sentences
+0. a form present
+0. only certain sections
+
+The script is not efficient if you wish to translate entire pages and best suited when only a segment of the webpage is required to be translated.
 
 ## How To Use
 
@@ -58,16 +68,15 @@ form.name,Name,नाम,Nom
 
 Salient features are:
 
-- first row must provide languages following the key entry
-- first column must be the key for replacement 
-- nested keys are supported, and nesting is depicted by "."
+- first row must provide languages following the key entry (and should be same as the `select` options for choosing language)
+- first column must be the key for replacement (used later to perform replacement in the HTML)
+- nested keys are supported, and nesting is depicted by "." (for example, "form.desc")
 - same key cannot exist in unnested form, for eg. in above CSV, a key `form` should not exist
-
-NOTE: These keys are used later to perform replacement in the HTML, and should be same as the `select` options for choosing language.
+- an easy way to create language translations is using a Google Sheet and `=GOOGLETRANSLATE(COLUMN,SRC_LNG,DEST_LNG)`. Refer [this sheet](https://docs.google.com/spreadsheets/d/1KfPLetq4VUvEApiGtWEUuQUhAYCrocyLmyiHV2cl_ks/edit?usp=sharing) for example. Thereafter, just export the sheet in CSV format.
 
 ### 2. Convert CSV to `vanilla-i18n` Language JSONs
 
-With the provided python script (more details in `csv_to_vanilla-i18n`), convert the CSV to languages JSONs. The filename is based on the first row of the CSV. For eg. for the above CSV, the generated JSON are `English.json`, `हिन्दी.json`, and `français.json`.
+With the provided script (more details in `csv_to_vanilla-i18n`), convert the CSV to languages JSONs. The filename is based on the first row of the CSV. For eg. for the above CSV, the generated JSON are `English.json`, `हिन्दी.json`, and `français.json`.
 
 Provide these language JSON files in your hosting server, default is inside directory `assets/vanilla-i18n` in the root folder of your website.
 
@@ -101,7 +110,7 @@ The `vanilla-i18n` objects takes the following arguments:
 
 1. `languages`: List of languages same as in the first row of language CSV or the names of the language JSON files without `.json` extension. The above snipper includes list of languages as per the example CSV.
 2. `opts`: These are optional arguments:
-  1. `path`: Path to the language files relative to the root of the website folder. Default: `assets/vanilla-i18n`.
+  1. `path`: Path to the language files relative to the root of the website. Default: `assets/vanilla-i18n`.
   2. `debug`: Shows debug information in browser console. Default: `false`.
   3. `i18n_attr_name`: Name of the data attribute storing the key to be used for translation of the enclosed text (more in next section). Default: `vanilla-i18n`.
   4. `toggler_id`: ID of the `select` element for choosing language. Default: `vanilla-i18n-toggler`.
@@ -113,11 +122,29 @@ Any text, word, paragraph, sentence, etc. that needs to be translated is to be e
 
 ```html
 <i18n vanilla-i18n="form.name">Name</i18n>
+<i18n vanilla-i18n="form.movies.options"><select name="moviepref">
+    <option value=1 selected="true">
+        comedy
+    </option>
+    <option value=2>
+        romance
+    </option>
+    <option value=3>
+        thriller
+    </option>
+    <option value=4>
+        horror
+    </option>
+    <option value=5>
+        biopic
+    </option>
+</select>
+</i18n>
 ```
 
 The attribute `vanilla-i18n` points to the key to be matched in the language JSON for replacement.
 
-NOTE: The example above encloses only a word; however, any text (sentence, paragraph, div, span, etc) can be enclosed if proper replacement is provided in each language.
+As seen in the above example, entire HTML elements or any section of the HTML can be replaced.
 
 ### 5. Provide Language Selection
 
@@ -172,6 +199,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="https://github.com/toyamarodrigo"><img src="https://avatars1.githubusercontent.com/u/41844101?v=4?s=100" width="100px;" alt=""/><br /><sub><b>rt</b></sub></a><br /><a href="https://github.com/thealphadollar/vanilla-i18n/commits?author=toyamarodrigo" title="Code">💻</a> <a href="https://github.com/thealphadollar/vanilla-i18n/commits?author=toyamarodrigo" title="Documentation">📖</a> <a href="#ideas-toyamarodrigo" title="Ideas, Planning, & Feedback">🤔</a> <a href="#plugin-toyamarodrigo" title="Plugin/utility libraries">🔌</a> <a href="#tool-toyamarodrigo" title="Tools">🔧</a></td>
+    <td align="center"><a href="http://denisvieira.js.org/"><img src="https://avatars.githubusercontent.com/u/8844649?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Denis Vieira</b></sub></a><br /><a href="#maintenance-denisvieira05" title="Maintenance">🚧</a></td>
+    <td align="center"><a href="https://github.com/thealphadollar"><img src="https://avatars.githubusercontent.com/u/32812320?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Shivam Kumar Jha</b></sub></a><br /><a href="#maintenance-thealphadollar" title="Maintenance">🚧</a></td>
+    <td align="center"><a href="https://github.com/RandallWert"><img src="https://avatars.githubusercontent.com/u/20331611?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Randall Wert</b></sub></a><br /><a href="#maintenance-RandallWert" title="Maintenance">🚧</a></td>
   </tr>
 </table>
 

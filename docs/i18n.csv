@@ -60,6 +60,7 @@ form.movies.options,"<select name=""moviepref"">
                 <option value=5>
                     <i18n vanilla-i18n=""form.movies.biopic"">biopic</i18n>
                 </option>
+<<<<<<< HEAD
             </select>","<select name=""moviepref"">
                 <option value=1 selected=""true"">
                     <i18n vanilla-i18n=""form.movies.comedy"">Comedia</i18n>
@@ -78,3 +79,7 @@ form.movies.options,"<select name=""moviepref"">
                 </option>
             </select>"
 form.submit,Submit,प्रस्तुत,Soumettre,Enviar
+=======
+            </select>"
+form.submit,Submit,प्रस्तुत,Soumettre
+>>>>>>> master
